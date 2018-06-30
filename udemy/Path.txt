@@ -1,0 +1,20 @@
+Next Generation Javascript
+- Let and const (D)
+- Arrow functions(D)
+- Exports and imports - Modules(D)
+- Classes and Arrow functions (D)
+- Spread and Rest Operators (D)
+- Dsestructuring  (D)
+  - array destructuring
+  - object destructuring
+- Reference and Primitive Types
+--------------------------------------
+11:01 AM . Start.
+
+The Build Workflow..(D)
+Using Create React App (D)
+Understanding the Folder structure (D)
+Understanding Component Basics..(D)
+Understanding JSX.. (D)
+JSX Restrictions.. (D)
+Creating a Functional Components.. 
