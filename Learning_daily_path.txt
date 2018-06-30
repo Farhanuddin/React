@@ -1,3 +1,35 @@
-1) Done
-2) Baby Steps. (Done)
-3) Introduction to JSX.
+(Keep things simple and be curious)
+Next Generation Javascript
+- Let and const (D)
+- Arrow functions(D)
+- Exports and imports - Modules(D)
+- Classes and Arrow functions (D)
+- Spread and Rest Operators (D)
+- Dsestructuring  (D)
+  - array destructuring
+  - object destructuring
+- Reference and Primitive Types
+--------------------------------------
+11:01 AM . Start.
+
+The Build Workflow..(D)
+Using Create React App (D)
+Understanding the Folder structure (D)
+Understanding Component Basics..(D)
+Understanding JSX.. (D)
+JSX Restrictions.. (D)
+Creating a Functional Components.. (D)
+Components and JSX Cheatsheet.. (D)
+------------------- Section 2 Done
+
+Working with components and reusing them.. (D)
+Outputting Dynamic COntent.. (D)
+Working with props..
+Understanding the Children Property..
+Understanding and using State..
+Manipulating the State.. 
+Function( Stateless) vs class (Stateful) Components
+Passing Method References Between Components..
+Adding Two way binding..
+
+ 
