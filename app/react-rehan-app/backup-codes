@@ -1,0 +1,21 @@
+  switchNameHandler = (NamePassed) => {
+    console.log("switch handler");
+   // this.state. = 'TCS-ECOM';
+   //  this.setState({people[0].name: 'TCS-ECOM'});
+    this.setState({ 
+      people: [{name: NamePassed, age: 29}, 
+         {name: 'Ammar', age: 26},
+         {name: 'Rehan', age: 33}],
+         isShowPersons: false
+    });
+  }
+
+  nameChangedHandler = (event) => {
+
+    this.setState({ 
+      people: [{name: 'Bloat', age: 29}, 
+                {name: event.target.value, age: 26}, 
+                {name: 'Rehan', age: 33}]
+    });
+
+  }

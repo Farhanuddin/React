@@ -7,40 +7,88 @@ import Person from './Person/Person';
 class App extends Component {
 
   state = {
-    people: [{name: 'Max', age: 29}, {name: 'Ammar', age: 26}, {name: 'Rehan', age: 33}]
+    people: [{id: 1, name: 'Max', age: 29},
+             {id: 2, name: 'Ammar', age: 26},
+             {id: 3, name: 'Rehan', age: 33}]
   }
-
-  switchNameHandler = (NamePassed) => {
-    console.log("switch handler");
-   // this.state. = 'TCS-ECOM';
-   //  this.setState({people[0].name: 'TCS-ECOM'});
-    this.setState({ 
-      people: [{name: NamePassed, age: 29}, {name: 'Ammar', age: 26}, {name: 'Rehan', age: 33}]
+  
+  //For Toggling List View on and off
+  tooglePersonsHandler = () => {
+    const doesShow = this.state.isShowPersons;
+    this.setState({
+      isShowPersons: !doesShow
     });
   }
 
-  nameChangedHandler = (event) => {
+  //Delete Person object handler
+  deletePersonHandler = (personIndex) => {
+     //let persons = this.state.people.concat.slice();
+      const persons = [...this.state.people];
+      persons.splice(personIndex, 1);
+     //Updating new Person list object
+     this.setState({
+        people: persons
+     });
+  }
 
-    this.setState({ 
-      people: [{name: 'Bloat', age: 29}, 
-                {name: event.target.value, age: 26}, 
-                {name: 'Rehan', age: 33}
-            ]
+  //Input handling function
+  nameChangedHandler = (event, id) => {
+    const persons = [...this.state.people];
+    
+    const personIndex = persons.findIndex(p => {
+       return p.id === id;
     });
 
-  }
+    persons[personIndex].name = event.target.value; 
+
+    this.setState({ 
+      people: persons
+    });
+
+}  
 
   render() {
+    const style = {
+      backgroundColor: 'green',
+      color: 'white',
+      font: 'inherit',
+      border: '1px solid black',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
+    let persons = null;
+
+    if(this.state.isShowPersons === true){
+      persons = (
+        <div>
+          {
+            this.state.people.map((person, index) => {
+              return <Person 
+              key={person.id}
+              name={person.name} 
+              age={person.age}
+              delClick={this.deletePersonHandler.bind(this, index)}
+              changed={(event) => this.nameChangedHandler(event, person.id)}
+              />
+            })
+          }
+        </div>
+
+      );
+      //adjust style
+      style.backgroundColor = 'red';
+    }
+
+    let classes = ['red', 'bold'].join(' ');
+
     return (
       <div className="App">
          <h1>Hi, I Am Farhan, A React web Developer</h1>
-         <button onClick={this.switchNameHandler.bind(this, 'Roarrr...')}>Switch Name</button>
-         <Person name={this.state.people[0].name} age={this.state.people[0].age}/>
-         <Person name={this.state.people[1].name} age={this.state.people[1].age}
-          click={this.switchNameHandler.bind(this, 'Roarrr...')}
-          changed={this.nameChangedHandler}> My Hobbies: Racing </Person>
-         <Person name={this.state.people[2].name} age={this.state.people[2].age}/>
-      </div>
+         <p className={(this.state.people.length) < 3 ? classes : ''}>Life is Thrill, Life is Awesome</p>
+         <button style={style} onClick={this.tooglePersonsHandler}>Switch Name</button>        
+         {persons}         
+     </div>
     );
   }
 }
