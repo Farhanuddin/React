@@ -32,4 +32,6 @@ Function( Stateless) vs class (Stateful) Components
 Passing Method References Between Components..
 Adding Two way binding..
 
- 
+ ------------------------------- Section 3 Done
+
+ Rendering Content conditionally..  
