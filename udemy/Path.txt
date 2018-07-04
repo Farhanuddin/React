@@ -31,7 +31,9 @@ Manipulating the State..
 Function( Stateless) vs class (Stateful) Components
 Passing Method References Between Components..
 Adding Two way binding..
+.....
+--------------------- Section 4 End
 
- ------------------------------- Section 3 Done
-
- Rendering Content conditionally..  
+Modules in React.
+1- Modules.
+2- Outline the Problem Set
