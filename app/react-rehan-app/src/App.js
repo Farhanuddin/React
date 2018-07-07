@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 //import Radium, {StyleRoot} from 'radium';
 //Usign our custom component
 import Person from './Person/Person';
@@ -76,20 +76,9 @@ class App extends Component {
   }
   
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid black',
-      padding: '8px',
-      cursor: 'pointer',
-      // ':hover': {
-      //   backgroundColor: 'lightgreen',
-      //   color: 'black'
-      // }
-    };
 
     let persons = null;
+    let btnClass = '';
 
     if(this.state.isShowPersons === true){
       persons = (
@@ -109,21 +98,22 @@ class App extends Component {
 
       );
       //adjust style
-      style.backgroundColor = 'red';
+      //style.backgroundColor = 'red';
       // style[':hover'] = {
       //   backgroundColor: 'lightred',
       //   color: 'black'
       // }
+      //Setting button css
+      btnClass = classes.Red;
     }
 
-    let classes = ['red', 'bold'].join(' ');
+    //let classes = ['red', 'bold'].join(' ');
 
     return ( 
-  
-          <div className="App">
+          <div className={classes.App}>
             <h1>Hi, I Am Farhan, A React web Developer</h1>
-            <p className={(this.state.people.length) < 3 ? classes : ''}>Life is Thrill, Life is Awesome</p>
-            <button style={style} onClick={this.tooglePersonsHandler}>Switch Name</button>        
+            <p className={(this.state.people.length) < 3 ? classes.red : ''}>Life is Thrill, Life is Awesome</p>
+            <button className={btnClass} onClick={this.tooglePersonsHandler}>Switch Name</button>        
             {persons}         
           </div>
 
