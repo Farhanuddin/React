@@ -2,14 +2,31 @@ import React, { Component } from 'react';
 import classes from './App.css';
 //import Radium, {StyleRoot} from 'radium';
 //Usign our custom component
-import Person from './Person/Person';
+//import Person from '../components/Persons/Person/Person';
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log('[App.js] inside Constructor' + props);
+
+  }
+
+  componentWillMount(){
+    console.log('[App.js] component will Mount()');
+  }
+
+  componentDidMount(){
+    console.log('[App.js] componentDidMount()');
+  }
 
   state = {
     people: [{id: 1, name: 'Max', age: 29},
              {id: 2, name: 'Ammar', age: 26},
-             {id: 3, name: 'Rehan', age: 33}]
+             {id: 3, name: 'Rehan', age: 33}],
+    isShowPersons: false             
   }
   
   //For Toggling List View on and off
@@ -76,25 +93,16 @@ class App extends Component {
   }
   
   render() {
-
+    console.log("[App.js] inside render()");
     let persons = null;
     let btnClass = '';
 
     if(this.state.isShowPersons === true){
       persons = (
-        <div>
-          {
-            this.state.people.map((person, index) => {
-              return <Person 
-              key={person.id}
-              name={person.name} 
-              age={person.age}
-              delClick={this.deletePersonHandler.bind(this, index)}
-              changed={(event) => this.nameChangedHandler(event, person.id)}
-              />
-            })
-          }
-        </div>
+         <Persons clicked={this.deletePersonHandler}
+          persons={this.state.people}
+          changed={this.nameChangedHandler}
+         />
 
       );
       //adjust style
@@ -111,9 +119,10 @@ class App extends Component {
 
     return ( 
           <div className={classes.App}>
-            <h1>Hi, I Am Farhan, A React web Developer</h1>
-            <p className={(this.state.people.length) < 3 ? classes.red : ''}>Life is Thrill, Life is Awesome</p>
-            <button className={btnClass} onClick={this.tooglePersonsHandler}>Switch Name</button>        
+            <Cockpit length={this.state.people.length}
+              btnClass={btnClass}
+              click={this.tooglePersonsHandler}   
+            />
             {persons}         
           </div>
 

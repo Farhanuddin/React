@@ -37,3 +37,12 @@ Adding Two way binding..
 Modules in React.
 1- Modules.
 2- Outline the Problem Set
+......
+---------------------- Section 5 End
+
+Section 6 :-
+Debugging React Apps.
+......
+---------------------- Section 6 Ends. Wow.
+
+Comparing Stateless and Stateful Component
